@@ -306,6 +306,9 @@ public class CmsResource implements I_CmsResource, Cloneable, Serializable, Comp
     /** The name constraints when generating new resources. */
     public static final String NAME_CONSTRAINTS = "-._~$";
 
+    /** The name constraints when generating new resources for RU locale. */
+    public static final String NAME_CONSTRAINTS_RU = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+
     /** Indicates if a resource has been changed in the offline version when compared to the online version. */
     public static final CmsResourceState STATE_CHANGED = CmsResourceState.STATE_CHANGED;
 
@@ -556,7 +559,7 @@ public class CmsResource implements I_CmsResource, Cloneable, Serializable, Comp
                 Messages.get().container(Messages.ERR_BAD_RESOURCENAME_EMPTY_0, name));
         }
 
-        CmsStringUtil.checkName(name, NAME_CONSTRAINTS, Messages.ERR_BAD_RESOURCENAME_4, Messages.get());
+        CmsStringUtil.checkName(name, NAME_CONSTRAINTS+NAME_CONSTRAINTS_RU, Messages.ERR_BAD_RESOURCENAME_4, Messages.get());
 
         // check for filenames that have only dots (which will cause issues in the static export)
         boolean onlydots = true;
